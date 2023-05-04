@@ -13,7 +13,7 @@ jobs:
       - name: Update Gists
         uses: gavinr/github-gist-sync@v1.0.1
         with:
-          token: ${{ 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 }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           gists: |
             a4175eea50f61a56852d168736a40715
             d6a0f13a69b044f421d8e0453199051c
