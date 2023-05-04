@@ -1,0 +1,28 @@
+on:
+  gist:
+    types:
+      - update
+
+jobs:
+  sync_gists:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install PyGithub
+
+      - name: Sync gists
+        run: python sync_gists.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAIN_GIST_ID: a4175eea50f61a56852d168736a40715
+          OTHER_GISTS: d6a0f13a69b044f421d8e0453199051c,50a15d7cd8dfe551a6b4644ae2a00031
