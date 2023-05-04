@@ -16,7 +16,5 @@ jobs:
       - name: Update Gists
         uses: popsiclestick/gist-sync-action@v1.2.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          gists: |
-            a4175eea50f61a56852d168736a40715
-            d6a0f13a69b044f421d8e0453199051c
+          github_file: gists.txt
+          auth: ${{ secrets.GITHUB_TOKEN }}
