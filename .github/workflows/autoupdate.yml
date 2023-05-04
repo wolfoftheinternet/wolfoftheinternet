@@ -10,7 +10,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Update Gists
-        uses: gavinr/github-gist-sync@v1.0.1
+        uses: popsiclestick/gist-sync-action@v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           gists: |
