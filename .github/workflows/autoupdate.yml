@@ -1,0 +1,19 @@
+name: Update Gists
+
+on:
+  gist:
+    types: [updated]
+
+jobs:
+  update_gists:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Update Gists
+        uses: gavinr/github-gist-sync@v1.0.1
+        with:
+          token: ${{ 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 }}
+          gists: |
+            ac00bc439f01c1bfab0b2588b1bc1f40
+            d6a0f13a69b044f421d8e0453199051c
