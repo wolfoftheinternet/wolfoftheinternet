@@ -1,8 +1,7 @@
 name: Update Gists
 
 on:
-  gist:
-    types: [updated]
+  push:
 
 jobs:
   update_gists:
