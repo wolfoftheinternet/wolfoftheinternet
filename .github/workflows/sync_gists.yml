@@ -23,6 +23,6 @@ jobs:
       - name: Sync gists
         run: python sync_gists.py
         env:
-          GITHUB_TOKEN: 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
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           MAIN_GIST_ID: a4175eea50f61a56852d168736a40715
           OTHER_GISTS: d6a0f13a69b044f421d8e0453199051c,50a15d7cd8dfe551a6b4644ae2a00031
