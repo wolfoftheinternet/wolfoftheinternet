@@ -8,7 +8,29 @@ jobs:
     runs-on: ubuntu-latest
         steps:
       - name: Checkout repository
+        uses: actions/checkout@v2name: Update Gists
+
+on:
+  push:
+
+jobs:
+  update_gists:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Set up Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Update Gists
+        uses: popsiclestick/gist-sync-action@v1.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          gists: |
+            a4175eea50f61a56852d168736a40715
+            d6a0f13a69b044f421d8e0453199051c
+
       - name: Set up Node.js 16
         uses: actions/setup-node@v2
         with:
