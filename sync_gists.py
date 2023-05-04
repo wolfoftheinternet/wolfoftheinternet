@@ -15,8 +15,9 @@ def main():
     for gist_id in other_gists:
         gist = github.get_gist(gist_id)
         # Format the files parameter correctly
-        files_to_update = {main_file.filename: {"content": main_content}}
+        files_to_update = {main_file.filename: {"content": main_content, "filename": main_file.filename}}
         gist.edit(files=files_to_update)
 
 if __name__ == "__main__":
     main()
+
