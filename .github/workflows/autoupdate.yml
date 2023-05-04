@@ -6,9 +6,13 @@ on:
 jobs:
   update_gists:
     runs-on: ubuntu-latest
-    steps:
+        steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Set up Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
       - name: Update Gists
         uses: popsiclestick/gist-sync-action@v1.2.0
         with:
