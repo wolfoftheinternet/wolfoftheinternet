@@ -2,18 +2,21 @@ import os
 from github import Github
 
 def main():
-    github_token = os.environ['GITHUB_TOKEN']
+    token = os.environ['GITHUB_TOKEN']
     main_gist_id = os.environ['MAIN_GIST_ID']
     other_gists = os.environ['OTHER_GISTS'].split(',')
 
-    github = Github(github_token)
+    github = Github(token)
     main_gist = github.get_gist(main_gist_id)
+
+    main_file = list(main_gist.files.values())[0]
+    main_content = main_file.content
 
     for gist_id in other_gists:
         gist = github.get_gist(gist_id)
-        for main_file, main_content in main_gist.files.items():
-            if main_file in gist.files:
-                gist.edit(files={main_file: {'content': main_content.content}})
+        # Format the files parameter correctly
+        files_to_update = {main_file.filename: {"content": main_content}}
+        gist.edit(files=files_to_update)
 
 if __name__ == "__main__":
     main()
